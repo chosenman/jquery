@@ -12,6 +12,8 @@
 </head>
 <body>
 
+
+
 	<form id="addUser">
 		<h1>Add User</h1>
 		First Name: <input type="" class="fname" name=""><br>
@@ -22,8 +24,8 @@
 		<button type="submit" value="">Add User</button>
 	</form>
 
-<div class="users"></div>
 
+	<div class="users"></div>
 
 
 	<script type="text/javascript">
@@ -32,7 +34,7 @@
 		var lname = $('#addUser input.lname').val();
 		var descr = $('#addUser textarea.tarea').val();
 
-		var all_row = "	<div class=\"personCard\"><h2>"+fname+lname+"</h2><a href=\"javascript:void(0)\">click for description!</a><p>"+descr+"</p></div>";
+		var all_row = "	<div class=\"personCard\"><h2>"+fname+" "+lname+"</h2><a href=\"javascript:void(0)\">click for description!</a><p>"+descr+"</p></div>";
 
 
 
@@ -53,11 +55,34 @@
 
 
 <style type="text/css">
+body {
+	display:flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+.users {
+	width:300px;
+	margin:auto;
+	display: block;
+}
+.personCard {
+		padding:10px;
+	border:1px solid #ccc;
+	margin:5px;
+}
 .personCard p {
 	display: none;
+
 }
 	#addUser {
 		display: block;
+		margin:auto;
 		width:360px;
 		text-align: right;
 	}
