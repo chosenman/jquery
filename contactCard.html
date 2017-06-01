@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+	<form id="addUser">
+		<h1>Add User</h1>
+		First Name: <input type="" class="fname" name=""><br>
+		Last Name: <input type="" class="lname" name=""><br>
+		Email Address: <textarea class="tarea"></textarea> 
+		<br>
+
+		<button type="submit" value="">Add User</button>
+	</form>
+
+<div class="users"></div>
+
+
+
+	<script type="text/javascript">
+		$('#addUser').submit(function(){
+		var fname = $('#addUser input.fname').val();
+		var lname = $('#addUser input.lname').val();
+		var descr = $('#addUser textarea.tarea').val();
+
+		var all_row = "	<div class=\"personCard\"><h2>"+fname+lname+"</h2><a href=\"javascript:void(0)\">click for description!</a><p>"+descr+"</p></div>";
+
+
+
+		$(".users").append(all_row);
+			return false;
+		});
+
+		$(".personCard").hide();
+
+		$(document).on("click",".personCard",function(){
+			$(this).sibling('p').fadeIn();
+		})
+
+
+	</script>
+
+
+
+
+<style type="text/css">
+.personCard p {
+	display: none;
+}
+	#addUser {
+		display: block;
+		width:360px;
+		text-align: right;
+	}
+	/*#addUser */
+</style>
+
+</body>
+</html>
