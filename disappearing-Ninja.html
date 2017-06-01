@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+<a href="javascript:void(0)">Restore</a><br/>
+<img src="img.png">
+<img src="img.png">
+<img src="img.png">
+<img src="img.png">
+<img src="img.png">
+<img src="img.png">
+<img src="img.png">
+<img src="img.png">
+
+
+<script type="text/javascript">
+	$("img").click(function(){
+		$(this).fadeOut();
+	});
+
+	$("a").click(function(){
+		$('img').fadeIn();
+	});
+
+</script>
+
+<style type="text/css">
+	img {
+		background: #3C4C5B;
+		padding:10; margin: 20px;
+		height:50px;
+	}
+</style>
+</body>
+</html>
