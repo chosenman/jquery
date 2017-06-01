@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<table class="users">
+		<tr>
+			<td>First Name</td><td>Last Name</td><td>Email Address</td><td>Contact#</td>
+		</tr>
+	</table>
+
+	<form id="addUser">
+		<h1>Add User</h1>
+		First Name: <input type="" class="fname" name=""><br>
+		Last Name: <input type="" class="lname" name=""><br>
+		Email Address: <input type="" class="eadress" name=""><br>
+		Contact No.: <input type="" class="contact" name=""><br>
+		<button value="">Add User</button>
+	</form>
+	<script type="text/javascript">
+		$('#addUser').submit(function(){
+		var fname = $('#addUser input.fname').val();
+		var lname = $('#addUser input.lname').val();
+		var eadress = $('#addUser input.eadress').val();
+		var contact = $('#addUser input.contact').val();
+		var all_row = "<tr><td>"+fname+"</td><td>"+lname+"</td><td>"+eadress+"</td><td>"+contact+"</td></tr>";
+		$(".users").append(all_row);
+			return false;
+		});
+
+
+
+
+	</script>
+
+
+
+
+<style type="text/css">
+	.users {
+		width:700px;
+	}
+	#addUser {
+		display: block;
+		width:360px;
+		text-align: right;
+	}
+	/*#addUser */
+</style>
+</body>
+</html>
