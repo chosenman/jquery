@@ -2,9 +2,8 @@
 
 Cool jQuery Plugins
 
-Below are some cool jQuery Plugins you can get familiar with.
+Below are some cool jQuery Plugins.
 
-It's important to only spend up to 30 minutes reviewing the tools below. You can always come back and learn more about these tools when you need them. We basically don't want you to spend too much time looking into these tools as there are lots of things we want to cover next.
 Tablesorter
 
     A jQuery Plugin that allows you to sort table data. It's an awesome tool!
