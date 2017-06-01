@@ -4,6 +4,11 @@
 	<title></title>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+	<!-- 
+	Yarik
+	https://github.com/chosenman/jquery/blob/master/contactCard.html
+	 -->
 </head>
 <body>
 
@@ -38,7 +43,7 @@
 		$(".personCard").hide();
 
 		$(document).on("click",".personCard",function(){
-			$(this).sibling('p').fadeIn();
+			$(this).children("p").toggle();
 		})
 
 
