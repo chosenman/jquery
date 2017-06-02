@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pokemon</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="pokeRender"></div>
+<div class="pokeDex"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+
+	for (var i = 1; i <= 151; i++) {
+
+		var getRequestURL = "http://pokeapi.co/api/v2/pokemon/"+i+"/";
+		$.get( getRequestURL, function(res){
+			//console.log(res);
+			console.log(res.abilities[0].ability.name);
+			console.log(res);
+			
+			var pokemonName = res.forms["0"].name;
+			var imgSrc = res.sprites.front_shiny;
+
+			var types = "";
+			for (var i = 0; i < res.types.length; i++) {
+				types += " " + res.types[i].type.name;
+			}
+
+			var heightPok = res.height;
+			var weight = res.weight;
+
+
+			var superDuperImageString = 
+					`<img src="` +imgSrc+
+					`" title="` +pokemonName+ 
+					`" types="` +types+
+					`" heightPok="` +heightPok+
+					`" weight ="` +weight+
+					`" >`;
+
+			$(".pokeRender").append(superDuperImageString);
+
+
+
+		}, 'json');		
+	}
+
+});
+
+
+
+	$(document).on('click', 'img',function(){
+
+		var title = $(this).attr('title');
+		var image = $(this).attr('src');
+		var types = $(this).attr('types');
+		var height = $(this).attr('heightPok');
+		var weight = $(this).attr('weight');
+
+		$(".pokeDex").html(`<div class="pokemoncard">`
+			 + `<h1>` + title + `</h2>`+  ` `
+			 + `<img src="`+ image + `"/> <br/>`
+			 + `<b>Types: </b>`+ types + `<br/>`
+			 + `<b>Height: </b>`+ height + `<br/> `
+			 + `<b>Weight:</b>` +weight +  
+			`</div>`);
+
+	})
+</script>
+
+<style type="text/css">
+body {
+	display:flex;
+}
+	.pokeRender {
+		width:70%;
+	}
+
+	.pokeDex {
+		width:29%;
+	}
+
+	.pokemoncard {
+		border:4px solid red;
+		padding:10px;
+	}
+</style>
+</body>
+</html>
