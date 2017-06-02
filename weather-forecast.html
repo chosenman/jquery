@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+<form id="request_form">
+
+	<input type="" name="" class="city"> <button>Show weather</button>
+</form>
+<div id="result">
+	
+</div>
+  
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#request_form').submit(function() {
+
+	    	var city = $('input.city').val();
+	    	// my API key 
+	    	// 29563f2a992926c951390aa78c4b2a2e
+	    	// http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={APIKEY} 
+	        var url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=29563f2a992926c951390aa78c4b2a2e";
+	        $.get(url, function(res) {
+
+	        	// converting from Kelvins to Celsius
+	        	var temperature = res.main.temp - 273;
+	        	console.log(res);
+	            $('#result').append("<h1>"+ res.name+ "</h1>" + "<b>Temparature:</b> " + Math.floor(temperature) + " ° C ");
+	        }, 'json');
+
+	        return false;
+	    });
+	});
+
+</script>
+
+</body>
+</html>
