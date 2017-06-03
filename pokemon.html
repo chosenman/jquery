@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<div></div>
+
+<script type="text/javascript">
+
+	var bselect = document.getElementsByTagName('div');
+	
+
+	function sowAllPoks() {
+		var ourImages = "";
+		for (var i = 1; i <= 151; i++) {
+			ourImages += "<img src=\"http://pokeapi.co/media/img/"+i+".png\">";
+		}
+		bselect[0].innerHTML = ourImages;
+
+	}
+	sowAllPoks();
+</script>
+
+</body>
+</html>
