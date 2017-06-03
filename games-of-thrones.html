@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Games of Thrones</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<div id="houses">
+		<img src="gamesot/baratheon.png" houseId="17">
+		<img src="gamesot/lannister.jpg" houseId="229">
+		<img src="gamesot/stark.jpg" houseId="362">
+		<img src="gamesot/targaryen.jpg" houseId="378">
+	</div>
+
+	<div id="houseDetails"></div>
+
+	<script type="text/javascript">
+
+			// this work the same as .get method
+			// $.ajax({
+			//   url: url
+			// }).done(function(res) {
+			//   console.log(res);
+			// });
+
+			// baratheon 17
+			// Stark 362
+			// Targaryen - Fire and Blood 378
+			// lannister 229
+
+				$(document).on('click', '#houses img',function(){
+					var houseId = $(this).attr('houseId');
+					console.log(houseId);
+
+					var url = "https://anapioficeandfire.com/api/houses/"+houseId+"/";
+
+				        $.get(url, function(res) {
+
+				        	// name, words, titles
+				        	var name = res.name;
+				        	var titles = "";
+				        	for (var i = 0; i < res.titles.length; i++) {
+				        		titles += res.titles[i] + ", ";
+				        	}
+				        	var words = res.words;
+
+				        	var houseRender =`
+				        	<div class="container">
+				        	<b class="label">House details:</b>
+				        	<h1><span>Name: </span>` + name +`</h1>
+				        	<p><b>Words: </b>`+words+`</p>
+				        	<p><b>Titles:</b> `+titles+`</p>
+				        	</div>`;
+
+				        	// Rendering our data
+				        	$("#houseDetails").html(houseRender);
+
+				        }, 'json');
+
+				});				
+
+	</script>
+
+
+<style type="text/css">
+
+	* {
+		margin: 0; padding:0;
+	}
+	.container h1 { 
+		color:#95110C;
+	}
+	.container h1 span, .container p b { 
+		color:#333;
+	 }
+	.container {
+		border:2px solid #333;
+		position: relative;
+		padding:20px;
+	}
+		.container .label {
+			position: absolute;
+			top:-10px; left:22px;
+			background: #fff;
+		}
+
+	#houses img{
+		width:24%;
+	}
+	#houseDetails {
+		padding: 15px;
+	}
+</style>
+</body>
+</html>
